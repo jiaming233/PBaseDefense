@@ -1,14 +1,55 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * 游戏主要类，整合各个子功能
+ * 类比GameFramework，相当于GameEntry
+ * 
+ * 外观模式 Facade ：
+ *  整合子系统，为子系统定义一组统一对外的接口，将系统内部互动细节隐藏，让子系统更容易被使用 
+ *  例如，汽车的方向盘、微波炉的操作面板，都是制造商提供给用户的外观
+ * 
+ * 优点：
+ * 1. 减少耦合度
+ * 2. 提高系统安全性
+ * 
+ * 注意：所有子系统整合在一个外观类中会导致接口类过于庞大，可以将功能相近的子系统进行整合，减少内部系统的依赖性
+ * 
+ * 游戏各系统的初始化和流程串接与使用它们的类没有关系，此时就需要一个外观模式类重新组织
+ * 
+ * 与其他模式的合作
+ * 1. 使用单例模式 Singleton 产生唯一的类对象
+ * 2. 子系统间使用中介者模式 Mediator 互相沟通
+ * 3. 使用观察者模式 Observer 实现游戏事件系统 GameEventSystem
+ *
+ *
+ * 其他应用
+ * 1. 网络引擎
+ * 2. 数据库引擎
+ * 
+ * 
+ * 
+ * 中介者模式 Mediator 
+ * 
+ * 负责内部 游戏系统IGameSystem 和 玩家界面 IUserInterface 
+ * 两大系统以及游戏系统下的子系统之间都不会直接互相引用，而是通过PBaseDefenseGame类的成员发出请求
+ * 
+ * 搭配观察者模式 Observer 可以避免接口爆炸的情况
+ */
+
 public class PBaseDefenseGame
 {
 	//------------------------------------------------------------------------
 	// Singleton模版
+
+    /*
+     * 单例模式：确认类只有一个对象 [静态类属性]，并提供一个全局的方法 [静态类方法] 来获取这个对象
+     * 
+     */
 	private static PBaseDefenseGame _instance;
 	public static PBaseDefenseGame Instance
 	{
-		get
+		get//getter 存取运算符
 		{
 			if (_instance == null)			
 				_instance = new PBaseDefenseGame();
@@ -32,6 +73,9 @@ public class PBaseDefenseGame
 	private GameStateInfoUI m_GameStateInfoUI = null;	 // 遊戲狀態界面
 	private GamePauseUI m_GamePauseUI = null;			 // 遊戲暫停界面
 		
+    /// <summary>
+    /// 私有构造方法 无法被外部调用，防止产生多个类对象
+    /// </summary>
 	private PBaseDefenseGame()
 	{}
 

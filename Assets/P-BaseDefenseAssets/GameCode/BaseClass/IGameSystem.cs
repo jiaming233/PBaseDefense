@@ -5,6 +5,10 @@ using System.Collections;
 public abstract class IGameSystem
 {
 	protected PBaseDefenseGame m_PBDGame = null;
+    /// <summary>
+    /// 构造时设置中介者成员
+    /// </summary>
+    /// <param name="PBDGame"></param>
 	public IGameSystem( PBaseDefenseGame PBDGame )
 	{
 		m_PBDGame = PBDGame;

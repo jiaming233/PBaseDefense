@@ -35,8 +35,15 @@ public class SceneStateController
 		Application.LoadLevel( LoadSceneName );
 	}
 
-	// 更新
-	public void StateUpdate()
+    /// <summary>
+    /// 声明需要被定期调用的函数
+    /// 在GameLoop.Update中调用
+    /// 达到类不用继承Monobehaviour也能定期更新，不必与Unity引擎产生依赖关系
+    /// 
+    /// 类比GameFramework  GameFrameworkEntry/GameFrameworkModule
+    /// </summary>
+    // 更新
+    public void StateUpdate()
 	{
 		// 是否還在載入
 		if( Application.isLoadingLevel)
