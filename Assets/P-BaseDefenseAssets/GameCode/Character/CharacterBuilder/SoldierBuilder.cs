@@ -13,6 +13,12 @@ public class SoldierBuildParam : ICharacterBuildParam
 // Soldier各部位的建立
 public class SoldierBuilder : ICharacterBuilder
 {
+	/*
+	 * 通过参数类
+	 * 
+	 * 让每个构建步骤产出不同的表现行为和功能
+	 * 
+	 */
 	private SoldierBuildParam m_BuildParam = null;
 
 	public override void SetBuildParam( ICharacterBuildParam theParam )
@@ -23,8 +29,15 @@ public class SoldierBuilder : ICharacterBuilder
 	// 載入Asset中的角色模型
 	public override void LoadAsset( int GameObjectID )
 	{
+		/*
+		 * 搭配资源工厂获取模型
+		 */
 		IAssetFactory AssetFactory = PBDFactory.GetAssetFactory();
 		GameObject SoldierGameObject = AssetFactory.LoadSoldier( m_BuildParam.NewCharacter.GetAssetName() );
+		/*
+		 * 在设置和产出对象时
+		 * 引用角色设置参数的设置
+		 */
 		SoldierGameObject.transform.position = m_BuildParam.SpawnPosition;
 		SoldierGameObject.gameObject.name = string.Format("Soldier[{0}]",GameObjectID);
 		m_BuildParam.NewCharacter.SetGameObject( SoldierGameObject );

@@ -30,6 +30,15 @@ public class EnemyBuilder : ICharacterBuilder
 		m_BuildParam.NewCharacter.SetGameObject( EnemyGameObject );
 	}
 
+	/// <summary>
+	/// 建造者模式的灵活点
+	/// 
+	/// 对于某些功能 实现类可以选择是否加入
+	/// 
+	/// 强制子类实现的定义为abstract
+	/// 不一定需要的定义为virtual
+	/// 通过接口的声明就可以明白类的实现规则
+	/// </summary>
 	// 加入OnClickScript
 	public override void AddOnClickScript()
 	{

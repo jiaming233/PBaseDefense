@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 管理工厂类对象
+/// 
+/// 使用静态类的静态方法获取某个类的唯一对象
+/// </summary>
+
 // 取得P-BaseDefenseGame中所使用的工廠
 public static class PBDFactory
 {

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+
 // 利用Builder介面來建構物件
 public class CharacterBuilderSystem : IGameSystem
 {

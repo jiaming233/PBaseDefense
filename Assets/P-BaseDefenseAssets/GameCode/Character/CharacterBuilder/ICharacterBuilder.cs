@@ -12,6 +12,7 @@ public abstract class ICharacterBuildParam
 	public string       IconSpriteName;
 }
 
+
 // 介面用來生成ICharacter的各零件
 public abstract class ICharacterBuilder
 {

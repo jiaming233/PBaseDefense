@@ -19,6 +19,9 @@ public abstract class ICharacter
 	protected float m_RemoveTimer = 1.5f;		// 陣亡後多久移除
 	protected bool m_bCanRemove = false;		// 是否可以移除
 
+	/// <summary>
+	/// 私有成员 和角色子类解耦
+	/// </summary>
 	private IWeapon m_Weapon = null;			// 使用的武器
 	protected ICharacterAttr m_Attribute = null;// 數值
 	protected ICharacterAI m_AI = null;			// AI
@@ -186,6 +189,16 @@ public abstract class ICharacter
 		m_Weapon.SetAtkPlusValue( Value );
 	}
 
+	/*
+	 * 桥接模式 Bridge： 抽象与实现分离
+	 * 
+	 * 实现角色接口 [抽象] 的每一个类，可使用实现武器接口 [实现] 的每一个类来实现功能
+	 * 角色类中包含一个武器类的引用，通过引用m_Weapon来调用实现方法即可
+	 * 
+	 * 不通过产生不同的角色子类 去完成特定的实现方式：角色自己在攻击方法中判断武器类型，为每个类型实现功能
+	 * 
+	 * 
+	 */
 	// 武器攻擊目標
 	protected void WeaponAttackTarget( ICharacter Target)
 	{

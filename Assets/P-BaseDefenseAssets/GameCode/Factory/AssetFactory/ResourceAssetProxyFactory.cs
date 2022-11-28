@@ -1,6 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+/*
+ * 代理者模式 Proxy
+ * 
+ * 优化加载性能
+ * 
+ * 
+ */
+
 // 做為ResourceAssetFactory的Proxy代理者,會記錄已經載入過的資源
 public class ResourceAssetProxyFactory : IAssetFactory
 {

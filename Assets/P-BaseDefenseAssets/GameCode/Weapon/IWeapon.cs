@@ -162,6 +162,16 @@ public abstract class IWeapon
 		m_Audio.Play();
 	}
 
+	/*
+	 * 不同种类的武器具有相同的攻击流程
+	 * 差别仅在于使用的特效不同
+	 * 
+	 * 模板方法模式 Template Method
+	 * 
+	 * 在一个操作方法中定义算法的流程，其中某些步骤由子类完成
+	 * 
+	 */
+	/// <param name="theTarget"></param>
 	// 攻擊目標
 	public void Fire( ICharacter theTarget )
 	{

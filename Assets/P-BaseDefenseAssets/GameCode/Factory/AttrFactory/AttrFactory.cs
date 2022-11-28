@@ -1,6 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+/*
+ * 享元模式 Flyweight
+ * 
+ * 减少重复对象的产生
+ * 
+ * 
+ * 
+ */
+
 // 實作產生遊戲用數值
 public class AttrFactory : IAttrFactory
 {

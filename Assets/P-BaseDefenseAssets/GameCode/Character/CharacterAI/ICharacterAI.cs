@@ -1,11 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+/*
+ * 状态模式
+ * 
+ * 
+ */
+
 // 角色的AI
 public abstract class ICharacterAI 
 {
 	protected ICharacter m_Character = null;
 	protected float		m_AttackRange = 2;
+	/// <summary>
+	/// 当前AI状态
+	/// </summary>
 	protected IAIState  m_AIState = null;
 
 	protected const float ATTACK_COOLD_DOWN = 1f; // 攻擊的CoolDown

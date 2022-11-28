@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// ICharacterAttr 专门存储角色属性，单一职责原则，减少ICharacter的复杂度
+/// </summary>
+
 // 角色數值界面
 public abstract class ICharacterAttr
 {
@@ -10,6 +14,10 @@ public abstract class ICharacterAttr
 	//protected string m_AttrName = "";		// 數值的名稱
 	
 	protected int 	 m_NowHP = 0;		// 目前HP值
+	/// <summary>
+	/// 负责数值计算的策略类对象
+	/// 能够更换计算策略
+	/// </summary>
 	protected IAttrStrategy m_AttrStrategy=null;// 數值的計算策略
 
 	public ICharacterAttr(){}

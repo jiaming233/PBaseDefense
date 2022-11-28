@@ -32,6 +32,12 @@ namespace DesignPattern_FactoryMethod
 		public abstract Product FactoryMethod();
 	}
 
+	/// <summary>
+	/// 1. 工厂子类产生对应的产品类对象
+	/// 
+	/// 可能发生类暴增的情况
+	/// </summary>
+
 	// 產生ProductA的工廠
 	public class ConcreteCreatorProductA : Creator
 	{
@@ -73,6 +79,15 @@ namespace DesignPattern_FactoryMethod
 			Debug.Log("產生工廠:ConcreteCreator_MethodType");
 		}
 
+		/// <summary>
+		/// 2. 工厂方法添加参数 
+		/// 
+		/// 根据参数类型产生对应的产品类
+		/// 
+		/// switch case
+		/// </summary>
+		/// <param name="Type"></param>
+		/// <returns></returns>
 		public override Product FactoryMethod(int Type)
 		{
 			switch( Type )
@@ -101,12 +116,26 @@ namespace DesignPattern_FactoryMethod
 			Debug.Log("產生工廠:ConcreteCreator_GenericMethod");
 		}
 
+		/// <summary>
+		/// 3. 泛型方法
+		/// 
+		/// 相对于泛型类，可以获取工厂接口
+		/// 
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <returns></returns>
 		public Product FactoryMethod<T>() where T: Product, new()
 		{
 			return new T();
 		}
 	}
 
+	/// <summary>
+	/// 4. 泛型类
+	/// 
+	/// 相对于1. 省去了继承
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
 	// 宣告Generic factory類別
 	public class Creator_GenericClass<T> where T : Product,new()
 	{
